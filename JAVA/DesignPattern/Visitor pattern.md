@@ -67,7 +67,8 @@ concrete visitor는 각각 Element들을 위한 특정 operation임
 
 # 예제
 
-![visitor_inheritance(Car)](/JAVA/DesignPattern/Img/visitor2.png)
+![visitor_inheritance(Car)](/JAVA/DesignPattern/Img/visitor2.png)   
+
 -> 자동차 파트들이 존재하고 Composite패턴을 활용한 Car 클래스. Car 클래스는 자동차 파트 element들을 추가 할 수 있고 Object Structure로써 accept 메서드를 호출하면 모든 element에서 accept 메서드를 호출하게 한 후 자신을 visit하도록 visitor에게 자기자신을 인자로 넘겨줌
 <br>
 <br>
