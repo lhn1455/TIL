@@ -11,7 +11,8 @@
         - [토큰발행 화면구현(1) - 액션, 리듀서 추가](#토큰발행-화면구현(1)---액션,-리듀셔-추가)
 
 - [JAVA]
-    - [Design Pattern](#design-pattern)
+    - [DesignPattern](#designpattern)
+        - [Iterator Pattern](#iterator-pattern)
 - [Solidity]
     - [데이터 타입과 타입별 저장위치](#데이터-타입과-타입별-저장위치)
     - [컨트랙트 선언](#컨트랙트-선언)
