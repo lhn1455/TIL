@@ -8,7 +8,8 @@ Ethereum의 트랜잭션과 배포된 컨트랙트 코드는 수정이 불가능
 ## Proxy Contract Architecture
 
 Proxy Contract 아키텍쳐는 모든 메시지 콜이 Proxy Contract를 거치게 됨. 이후 Proxy Contract는 요청받은 Message Call을 로직 컨트랙트로 리다이렉트 시킴.   
-Proxy Contract는 리다이렉트시킬 로직 컨트랙트의 주소를 가지고 있기 때문에, 업데이트를 할 때 새로운 컨트랙트를 배포한 뒤, Proxy Contract가 참조하고 있는 컨트랙트의 주소를 업데이트 해야 함
+Proxy Contract는 리다이렉트시킬 로직 컨트랙트의 주소를 가지고 있기 때문에, 업데이트를 할 때 새로운 컨트랙트를 배포한 뒤, Proxy Contract가 참조하고 있는 컨트랙트의 주소를 업데이트 해야 함   
+
 ![proxy-contract](/Solidity/img/proxy.png)   
 
 ## Proxy Contract
