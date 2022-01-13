@@ -1,10 +1,7 @@
 # Today I Learned
 
-<<<<<<< HEAD
-## index    
-=======
-## index  
->>>>>>> refs/remotes/origin/main
+##index   
+
 - [Ethereum]
     - [Ethereum Data Flow](https://github.com/lhn1455/TIL/blob/main/Ethereum/Ethereum%20Data%20Flow.md)
 - [Inflearn]
