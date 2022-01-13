@@ -2,7 +2,7 @@
 
 ## index
 - [Ethereum]
-    - [Ethereum Data Flow](#ethereum-data-flow)
+    - [Ethereum Data Flow](https://github.com/lhn1455/TIL/blob/main/Ethereum/Ethereum%20Data%20Flow.md)
 - [Inflearn]
     - [리액트로 구현하는 블록체인 이더리움 ERC721(NFT)](#리액트로-구현하는-블록체인-이더리움-erc721(nft))
         - [드리즐 리듀서와 미들웨어(redux-saga)](#드리즐-리듀서와-미들웨어(redux-saga))
