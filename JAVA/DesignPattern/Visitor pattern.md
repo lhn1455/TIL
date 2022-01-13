@@ -14,7 +14,7 @@
 - 그 operation들이 abstract class 수준이 아닌 concrete class 수준에서 수행되어야할 때(concrete class 마다 operation이여도 다르게 동작해야할 때)   
 <br>
 
-###Example
+### Example
 - 여러 object들에 대해 수행되어야 하는 operation이 있는데 이게 모든 class들에게 분배되어있으면 이해하기도, 유지보수하기도 힘듦. 이때 만약 새로운 operation이 추가되면 추가하는데 너무 많은 수정을 해야할 것임   
 <br>
 
@@ -37,7 +37,8 @@
 # Visitor Pattern (방문자 패턴) 이란?
 > 상속 구조   
 
-![visitor_inheritance](/JAVA/DesignPattern/Img/visitor.png)
+![visitor_inheritance](/JAVA/DesignPattern/Img/visitor.png)   
+
 방문자 패턴은 기존의 object structure와 operation을 캡슐화 한 visitor 부분이 나뉘어진 구조   
 visitor 패턴 내의 메서드는 concrete element 개수 만큼 존재함 (#Visitor method = #Concrete element)   
 concrete visitor는 각각 Element들을 위한 특정 operation임   
@@ -52,10 +53,13 @@ concrete visitor는 각각 Element들을 위한 특정 operation임
 | Element | element들이 visitor를 인자로 받기 위한 accept 메서드를 정의 |
 | ConcreteElement | visitor를 인자로 받기 위한 accept 메서드를 구현 |
 | ObjectStructure | element들을 나열 / visitor가 element들을 방문하는데 high-level interface를 제공 ex.Car class) |
+<br>
+<br>
 
 > flow   
 
-![visitor_flow](/JAVA/DesignPattern/Img/visitor1.png)
+![visitor_flow](/JAVA/DesignPattern/Img/visitor1.png)   
+
  ObjectStructure에서 ConcreteElementA.accpet(Visitor)를 호출하면 ConcreteElement가 Visitor.visit(자기자신)을 호출하고 그러면 Visitor가 A에게 맞는 operationA()를 제공   
 즉, ObjectStructure에서 Visitor를 accept하면 ConcreteElementA가 그 Visitor를 accept하고, visitor에게 자기자신을 인자로 넘겨서 visit함수를 호출하게 만듦. 그러면 Visitor는 ConcreteElementA를 위한 operationA를 제공. 그 다음으로 ConcreteElementB가 그 Visitor를 accept하게 되고 위와 마찬가지로 Visitor는 ConcreteElementB에게 operationB를 제공
 <br>
@@ -65,6 +69,9 @@ concrete visitor는 각각 Element들을 위한 특정 operation임
 
 ![visitor_inheritance(Car)](/JAVA/DesignPattern/Img/visitor2.png)
 -> 자동차 파트들이 존재하고 Composite패턴을 활용한 Car 클래스. Car 클래스는 자동차 파트 element들을 추가 할 수 있고 Object Structure로써 accept 메서드를 호출하면 모든 element에서 accept 메서드를 호출하게 한 후 자신을 visit하도록 visitor에게 자기자신을 인자로 넘겨줌
+<br>
+<br>
+
 
 > Visitor & Element 인터페이스
 ```java
@@ -91,6 +98,9 @@ Visitor 인터페이스에서는 ConcreteElement 개수 만큼 각각에 상응�
 Element 인터페이스에서는 Visitor를 인자로 받아 자신을 방문할 수 있도록 하는 accept 메서드를 정의   
 
 **CarElementPrintVisitor**, **CarElementDoVisitor**라는 Concrete Visitor가 존재하며 이는 각각 Concrete Element 개수만큼 상응하는 operation 개수를 가지고 있음
+<br>
+<br>
+
 
 > Concrete Element   
 ```java
@@ -120,6 +130,9 @@ class Wheel implements ICarElement {
 }
 ```
 각각 Concrete Element에서 accept 메서드를 호출하면 Visitor를 인자로 넘겨받게 되고 그 Visitor에게 자기 자신을 인자로 넘겨주어 자기자신을 visit할 수 있게 만듦
+<br>
+<br>
+
 
 > Concrete Element Car (with Composite Pattern) 
 ```java
@@ -143,6 +156,9 @@ class Car implements ICarElement {
 ```  
 
 composit pattern으로 구현된 Car class는 복수개의 Concrete Element들을 갖을 수 있음. Car에서 accept 메서드를 호출하면 Visitor를 인자로 넘겨받은 후 Car가 포함하고 있는 Concrete Element들이 순차적으로 그 Visitor를 accept하도록 메서드를 호출하도록 함. 모든 Concrete Element들이 accept 메서드를 호출한 후에는 자기자신을 인자로 넘겨주어 자신을 visit하도록 함
+<br>
+<br>
+
 
 > Concrete Visitor (#메소드 = #Concrete Element)   
 
@@ -163,6 +179,9 @@ class CarElementPrintVisitor implements ICarElementVisitor {
     }
 }
 ```
+<br>
+<br>
+
 
 ## 동작 흐름
 1. main()
