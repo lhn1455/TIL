@@ -1,6 +1,6 @@
-# Visitor Pattern (방문자 패턴)
-> 방문자와 방문 공간을 분리하여, 방문 공간이 방문자를 맞이할 때, 이후에 대한 행동을 방문자에게 위임하는 패턴
-
+# Visitor Pattern (방문자 패턴) / 행위패턴
+> 방문자와 방문 공간을 분리하여, 방문 공간이 방문자를 맞이할 때, 이후에 대한 행동을 방문자에게 위임하는 패턴   
+즉, 로직과 구조를 분리하는 패턴. 로직과 구조가 분리되면 구조를 수정하지 않고도 새로운 동작을 기존 객체 구조에 추가하는 것이 가능
 ## 방문자 패턴의 목적과 사용이유
 ### Purpose
 - (방문자 패턴이 필요 없는 경우) runtime에 object들에게 operation을 포함시키는게 타당할 때
@@ -52,7 +52,7 @@ concrete visitor는 각각 Element들을 위한 특정 operation임
 | ConcreteVisitor | visitor에 선언된 operation들을 구현 |
 | Element | element들이 visitor를 인자로 받기 위한 accept 메서드를 정의 |
 | ConcreteElement | visitor를 인자로 받기 위한 accept 메서드를 구현 |
-| ObjectStructure | element들을 나열 / visitor가 element들을 방문하는데 high-level interface를 제공 ex.Car class) |
+| ObjectStructure | element들을 나열 / visitor가 element들을 방문하는데 high-level interface를 제공 ex.Car class)
 <br>
 <br>
 
