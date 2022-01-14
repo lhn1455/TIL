@@ -1,7 +1,12 @@
 # Today I Learned
 
 ##index   
-
+- [CryptoZombie]
+    - [Advanced Solidity Path: Get In-depth Knowledge]()
+            - [1. Testing Smart Contracts with Truffle]()
+            - [2. Deploying Dapps with Truffle]()
+            - [3. How to Build an Oracle]()
+            - [4. How to Build an Oracle - part2]()
 - [Ethereum]
     - [Ethereum Data Flow](https://github.com/lhn1455/TIL/blob/main/Ethereum/Ethereum%20Data%20Flow.md)
 - [Inflearn]
