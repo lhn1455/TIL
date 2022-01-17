@@ -1,6 +1,6 @@
 # Solidity v0.5.0 Breaking Changes
 
-> Solidity v0.5.0으로 컴파일된 컨트랙트는 여전히 컨트랙트를 다시 컴파일하고 재배포하는 과정 없이 이전 버전으로 컴파일된 라이브러리와 다른 컨트랙트들과 상호작용 할 수 있다. 데이터 저장 위치와 가시성을 포함하기 위한 인터페이스와 변동성 지정자를 바꾸는것으로 충분하다.
+> Solidity v0.5.0으로 컴파일된 컨트랙트는 여전히 컨트랙트를 다시 컴파일하고 재배포하는 과정 없이 이전 버전으로 컴파일된 라이브러리와 다른 컨트랙트들과 상호작용 할 수 있다. 데이터 저장 위치와 가시성을 포함하기 위한 인터페이스와 변동성 지정자를 바꾸는것으로 충분하다.   >>[Interoperability With Older Contracts](#interoperability-with-older-contracts)
 
 
 ## Semantic Only Changes (의미론적인 변화)
@@ -34,14 +34,14 @@
     `function f(uint[][] x)` ➔ `function f(uint[][] memory x)`   
     > 참고 : [데이터 타입과 타입별 저장위치](https://github.com/lhn1455/TIL/blob/main/Solidity/%EB%8D%B0%EC%9D%B4%ED%84%B0%20%ED%83%80%EC%9E%85%EA%B3%BC%20%ED%83%80%EC%9E%85%EB%B3%84%20%EC%A0%80%EC%9E%A5%EC%9C%84%EC%B9%98.md)
 
-- 컨트랙트 타입은 주소 타입의 멤버를 포함하지 않기 때문에(namespace를 분리하기위해서) 주소 타입 멤버를 사용해야 할 경우, 명시적으로 주소 타입으로 형변환 해야 함.
-예를 들어, c가 컨트랙트라면, transfer함수 호출 시 `address(c)`와 같이 먼저 주소 타입으로 변경한 후 `address(c).transfer(...)`와 같이 사용해야 하며 `c.balance`를 `address(c).balance`로 변경해야 함.
+- 컨트랙트 타입은 주소 타입의 멤버를 포함하지 않기 때문에(namespace를 분리하기위해서) 주소 타입 멤버를 사용해야 할 경우, 명시적으로 주소 타입으로 형변환 해야 한다.
+예를 들어, c가 컨트랙트라면, transfer함수 호출 시 `address(c)`와 같이 먼저 주소 타입으로 변경한 후 `address(c).transfer(...)`와 같이 사용해야 하며 `c.balance`를 `address(c).balance`로 변경해야 한다.
     > `c.transfer(...)` ➔ `address(c).transfer(...)`   
     `c.balance` ➔ `address(c).balance`
-- 상속 관계를 갖는 컨트랙트가 아니라면 명시적으로 형변환이 혀용되지 않음. 상속관계를 갖지 않더라도 호환 가능한 경우에는 먼저 주소타입으로 형변환 해야 함. 예를 들어, A,B가 상속관계를 갖지 않는 컨트랙트 타입이지만 호환이 가능하다면 A(address(b))와 같이 할 수 있음.
-- 주소타입은 `address`타입과 `address payable` 두 가지로 나뉨. 단, `address payable` 타입에 대해서만 `transfer`함수가 제공
+- 상속 관계를 갖는 컨트랙트가 아니라면 명시적으로 형변환이 혀용되지 않는다. 상속관계를 갖지 않더라도 호환 가능한 경우에는 먼저 주소타입으로 형변환 해야 한다. 예를 들어, A,B가 상속관계를 갖지 않는 컨트랙트 타입이지만 호환이 가능하다면 A(address(b))와 같이 할 수 있다.
+- 주소타입은 `address`타입과 `address payable` 두 가지로 나뉨. 단, `address payable` 타입에 대해서만 `transfer`함수가 제공한다.
     > `address payable` 타입은 `address` 타입으로 전환이 가능하지만 반대의 경우 성립하지 않음. `address`를 `address payable`로 변환하려면 `uint160`통해서 해야 함. 만약 c가 컨트랙트라면, 오직 c가 `payable fallback` 함수를 가질때만 `address(C)`는 `address payable`가 될 수 있음. 만약 **withdraw pattern**을 사용한다면, 코드를 수정할 필요가 없다. 왜냐하면 `transfer`가 저장된 `address`들 대신에 오직 `msg.sender`에 의해서만 사용되고 `msg.sender`는 `address payable`이기 때문.
-- `bytesX`와 `uintY`의 다른 사이즈 간의 형변환은 오른쪽으로 padding하는 `bytesX`와 왼쪽으로 padding하는 `uintY`때문에 형변환이 허용되지 않음. 이것은 형변환 오류를 일으킬 수 있음.사이즈는 반드시 형변환 전에 타입레벨에서 맞추어져야 함. 예를 들어, `bytes4`(4 bytes)는 `bytes4 `변수를 `bytes8`(8 bytes)로 형변환 한 후에 `uint64`(8 bytes)로 형변환 할 수 있음. 반대의 경우 `uint64`를 `uint32`(4 bytes)로 변환 후 `bytes4`로 변환.
+- `bytesX`와 `uintY`의 다른 사이즈 간의 형변환은 오른쪽으로 padding하는 `bytesX`와 왼쪽으로 padding하는 `uintY`때문에 형변환이 허용되지 않는다. 이것은 형변환 오류를 일으킬 수 있다.사이즈는 반드시 형변환 전에 타입레벨에서 맞추어져야 한다. 예를 들어, `bytes4`(4 bytes)는 `bytes4 `변수를 `bytes8`(8 bytes)로 형변환 한 후에 `uint64`(8 bytes)로 형변환 할 수 있다. 반대의 경우 `uint64`를 `uint32`(4 bytes)로 변환 후 `bytes4`로 변환한다.
     > 참고   
 
     |<center> Type Name</center> | <center>Description</center> |
@@ -70,10 +70,10 @@
     예시)   
     uint8(bytes3(0x291807)) ➔ uint8(uint24(bytes3(0x291807))) (the result is 0x07) => 이제 안됨
 
-- non-payable 함수 또는 modifier를 통해 이 함수로 접근하는 것도 `msg.value`를 사용할 수 없음. **(보안이슈)**
-`payable`함수로 바꾸던가 `msg.value`를 사용하는 프로그램 로직을 위해 새로운 internal 함수를 만들어야 함.
+- non-payable 함수 또는 modifier를 통해 이 함수로 접근하는 것도 `msg.value`를 사용할 수 없다. **(보안이슈)**
+`payable`함수로 바꾸던가 `msg.value`를 사용하는 프로그램 로직을 위해 새로운 internal 함수를 만들어야 한다.
 
-- 명료성의 이유로, 일반적인 input값이 sorce로 사용된다면 command line interface는 지금 `-`를 요구. 
+- 명료성의 이유로, 일반적인 input값이 sorce로 사용된다면 command line interface는 지금 `-`를 요구한다. 
 
 
 ## Deprecated Elements (사라질 요소들)
@@ -136,3 +136,224 @@
 - 새로운 키워드 : `calldata`, `constructor`
 - 새로 예약된 키워드 : `alias`, `apply`, `auto`, `copyof`, `define`, `immutable`, `implements`, `macro`, `mutable`, `override`, `partial`, `promise`, `reference`, `sealed`, `sizeof`, `supports`, `typedef`, `unchecked`.
 
+
+# Interoperability With Older Contracts
+> 인터페이스를 정의하는 것 만으로 v0.5.0 이전 버전으로 쓰여진 컨트랙트와 상호작용할 수 있다.
+
+0.5.0버전 이전의 컨트랙트를 이미 배포했다고 가정하자.
+
+```solidity
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.4.25;
+// This will report a warning until version 0.4.25 of the compiler
+// This will not compile after 0.5.0
+contract OldContract {
+    function someOldFunction(uint8 a) {
+        //...
+    }
+    function anotherOldFunction() constant returns (bool) {
+        //...
+    }
+    // ...
+}
+```
+이것은 솔리디티 v0.5.0으로 더이상 컴파일 되지 않을 것이다. 
+> ### 호환가능한 인터페이스를 정의하자   
+
+```solidity
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.5.0 <0.9.0;
+interface OldContract {
+    function someOldFunction(uint8 a) external;
+    function anotherOldFunction() external returns (bool);
+}
+```
+원래의 컨트랙트의 `anotherOldFunction`이 constant로 선언되어 있음에도 불구하고 view 로 선언하지 않았다. 이것은 솔리디티 v0.5.0 `staticcall`의 시작이 `view` 함수를 호출하기 위해 사용된다는 사실 때문이다. v0.5.0 이전에 `constant` 키워드는 강요되지 않았다. 그래서 `staticcall`과 함께 `constant`로 선언된 함수를 호출하는 것은 `constant` 함수가 
+`storage`를 변경하려고 시도할것이기 때문에 revert되었다. 결과적으로 이전 컨트랙트에 대해 인터페이스가 정의되었을때, 이 함수가 무조건 `staticcall`로만 작동한다고 보장하는 경우 `constant`자리에 `view`만 사용하면 된다. 
+
+>### 위와 같이 인터페이스가 정의되었다면, 이전에 배포한 컨트랙트를 쉽게 사용할 수 있다. 
+```solidity
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.5.0 <0.9.0;
+
+interface OldContract {
+    function someOldFunction(uint8 a) external;
+    function anotherOldFunction() external returns (bool);
+}
+
+contract NewContract {
+    function doSomething(OldContract a) public returns (bool) {
+        a.someOldFunction(0x42);
+        return a.anotherOldFunction();
+    }
+}
+
+```
+
+비슷하게 v0.5.0이전의 라이브러리는 연결되어 있는 동안에 라이브러리 주소에 대한 공급과 실행 없이, 라이브러리 함수를 정의 함으로써 사용될 수 있다.
+```solidity
+// This will not compile after 0.6.0
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.5.0;
+
+library OldLibrary {
+    function someFunction(uint8 a) public returns(bool);
+}
+
+contract NewContract {
+    function f(uint8 a) public returns (bool) {
+        return OldLibrary.someFunction(a);
+    }
+}
+```
+
+# Example
+다음의 예시는 old version 컨트랙트와 new version 컨트랙트를 비교하여 보여준다. 
+
+> Old Version
+```solidity
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.4.25;
+// This will not compile after 0.5.0
+
+contract OtherContract {
+    uint x;
+    function f(uint y) external {
+        x = y;
+    }
+    function() payable external {}
+}
+
+contract Old {
+    OtherContract other;
+    uint myNumber;
+
+    // Function mutability not provided, not an error.
+    function someInteger() internal returns (uint) { return 2; }
+
+    // Function visibility not provided, not an error.
+    // Function mutability not provided, not an error.
+    function f(uint x) returns (bytes) {
+        // Var is fine in this version.
+        var z = someInteger();
+        x += z;
+        // Throw is fine in this version.
+        if (x > 100)
+            throw;
+        bytes memory b = new bytes(x);
+        y = -3 >> 1;
+        // y == -1 (wrong, should be -2)
+        do {
+            x += 1;
+            if (x > 10) continue;
+            // 'Continue' causes an infinite loop.
+        } while (x < 11);
+        // Call returns only a Bool.
+        bool success = address(other).call("f");
+        if (!success)
+            revert();
+        else {
+            // Local variables could be declared after their use.
+            int y;
+        }
+        return b;
+    }
+
+    // No need for an explicit data location for 'arr'
+    function g(uint[] arr, bytes8 x, OtherContract otherContract) public {
+        otherContract.transfer(1 ether);
+
+        // Since uint32 (4 bytes) is smaller than bytes8 (8 bytes),
+        // the first 4 bytes of x will be lost. This might lead to
+        // unexpected behavior since bytesX are right padded.
+        uint32 y = uint32(x);
+        myNumber += y + msg.value;
+    }
+}
+```
+
+> New Version
+
+```solidity
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.5.0;
+// This will not compile after 0.6.0
+
+contract OtherContract {
+    uint x;
+    function f(uint y) external {
+        x = y;
+    }
+    function() payable external {}
+}
+
+contract New {
+    OtherContract other;
+    uint myNumber;
+
+    // Function mutability must be specified.
+    function someInteger() internal pure returns (uint) { return 2; }
+
+    // Function visibility must be specified.
+    // Function mutability must be specified.
+    function f(uint x) public returns (bytes memory) {
+        // The type must now be explicitly given.
+        uint z = someInteger();
+        x += z;
+        // Throw is now disallowed.
+        require(x <= 100);
+        int y = -3 >> 1;
+        require(y == -2);
+        do {
+            x += 1;
+            if (x > 10) continue;
+            // 'Continue' jumps to the condition below.
+        } while (x < 11);
+
+        // Call returns (bool, bytes).
+        // Data location must be specified.
+        (bool success, bytes memory data) = address(other).call("f");
+        if (!success)
+            revert();
+        return data;
+    }
+
+    using address_make_payable for address;
+    // Data location for 'arr' must be specified
+    function g(uint[] memory /* arr */, bytes8 x, OtherContract otherContract, address unknownContract) public payable {
+        // 'otherContract.transfer' is not provided.
+        // Since the code of 'OtherContract' is known and has the fallback
+        // function, address(otherContract) has type 'address payable'.
+        address(otherContract).transfer(1 ether);
+
+        // 'unknownContract.transfer' is not provided.
+        // 'address(unknownContract).transfer' is not provided
+        // since 'address(unknownContract)' is not 'address payable'.
+        // If the function takes an 'address' which you want to send
+        // funds to, you can convert it to 'address payable' via 'uint160'.
+        // Note: This is not recommended and the explicit type
+        // 'address payable' should be used whenever possible.
+        // To increase clarity, we suggest the use of a library for
+        // the conversion (provided after the contract in this example).
+        address payable addr = unknownContract.make_payable();
+        require(addr.send(1 ether));
+
+        // Since uint32 (4 bytes) is smaller than bytes8 (8 bytes),
+        // the conversion is not allowed.
+        // We need to convert to a common size first:
+        bytes4 x4 = bytes4(x); // Padding happens on the right
+        uint32 y = uint32(x4); // Conversion is consistent
+        // 'msg.value' cannot be used in a 'non-payable' function.
+        // We need to make the function payable
+        myNumber += y + msg.value;
+    }
+}
+
+// We can define a library for explicitly converting ``address``
+// to ``address payable`` as a workaround.
+library address_make_payable {
+    function make_payable(address x) internal pure returns (address payable) {
+        return address(uint160(x));
+    }
+}
+```
