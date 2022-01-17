@@ -17,7 +17,7 @@
 ## Semantic and Syntactic Changes (의미론적, 문법적인 변화)
  > 이 섹션은 문법적, 의미적인 부분에 영향을 주는 중요한 변화들이다.
  - `.call(),` `.delegatecall()`, `staticcall()`, `keccak256()`, `sha256()` 그리고 `ripemd160()`함수는 하나의 `bytes`인자만 받는다. 또한 인자는 pad되지 않는다. 이것은 인자들이 연결되는 방법을 더 분명하고 명확하게 만들기위해 변화되었다. 모든 `.call()` 을 `.call("")`로 바꿔라. 그리고 모든 `.call(signature, a, b, c)`를 `.call(abi.encodeWithSignature(signature, a, b, c))`로 바꾸어 사용해라. (이것만 값 타입으로 작동한다.)
-    > `.call()` ➔ `.call("")`
+    > `.call()` ➔ `.call("")`   
  `.call(signature, a, b, c)` ➔ `.call(abi.encodeWithSignature(signature, a, b, c))`
 - keccak256(a, b, c)를 keccak256(abi.encodePacked(a, b, c))로 변경한다
     > `keccak256(a, b, c)` ➔ `keccak256(abi.encodePacked(a, b, c))`
