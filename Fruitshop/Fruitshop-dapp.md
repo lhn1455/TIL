@@ -28,7 +28,7 @@ $ ganache-cli
 ```
 - Desktop에서 ganache 앱 실행 시 port : 7545
 - ganache-cli 실행 시 port : 8545
-    - ganache-cli )   
+    - ganache-cli 실습 시 메타마스크에 계정 불러오기)   
     ![ganache-cli](/Fruitshop/img/ganache.png)   
         > 여기서 0번 account를 가져다 쓰기위해 0번 private key를 복사   
 
@@ -38,6 +38,7 @@ $ ganache-cli
         > 비공개키 자리에 0번 private key 복사한것을 붙여넣기  
     - metamask 계정 연결   
     ![metamask](/Fruitshop/img/metamask1.png)   
+    > 이후 아래 실습은 Desktop ganache로 진행!
 
 ## 3. truffle-config.js 파일 설정
 networks{} 내부에 아래 코드 추가
@@ -168,9 +169,13 @@ import "./App.css";
 
 const App = () => {
   const [myApple,setMyApple] = useState(0)
+  // instance, address, web3 상태에 저장하기
+  // 상태저장하려면 store에 저장해야하고
+  //store에 저장하려면 reducers와 actions에 각각을 추가해야 함
   let initalState = {web3:null, instance:null, account:null}
   const [state, dispatch] = useReducer(reducer,initalState)
 
+//reducer
   function reducer(state,action){
     switch(action.type){
       case "INIT":
@@ -218,10 +223,12 @@ const App = () => {
     let fruitshop = contract(FruitshopContract)
     fruitshop.setProvider(web3.currentProvider)
 
-    let instance = await fruitshop.deployed()
+    let instance = await fruitshop.deployed() //이것은 지역변수라서 상태저장을 해야함
+
     // 계정(address) 가져오기
     let accounts = await web3.eth.getAccounts()
 
+    // action
     let InitActions = {
       type : 'INIT',
       web3,
@@ -260,8 +267,22 @@ export default App;
 ```
 $ npm install @truffle/constract
 ```
+Q. @truffle/contract를 사용하는 이유?   
+코드가 깔끔하게 나오기 때문
 
-## 10. npm run start
+```javascript
+const getweb = async ()=> {
+    const contract = require("@truffle/contract")
+    let web3 = await getWeb3()
+    let fruitshop = contract(FruitshopContract)
+    fruitshop.setProvider(web3.currentProvider)
+    let instance = await fruitshop.deployed()
+
+    console.log(instance);
+}
+```
+
+## 9. npm run start
 ```
 $ npm run start
 ```
@@ -286,6 +307,83 @@ $ npm run start
 - sell 하는 트랜잭션 완료 : 10 ETH 복구
 
 ![sell2](/Fruitshop/img/sell2.png)
+
+# + injected web3
+- user ➔ client가 web3를 통해서 접근 ➔ 메타마스크 중 어떤 계정과 연결
+- 가나쉬 /1000ETH가 있는 계정과 연결
+- 그럼 이 메타마스크는 수많은 블록체인이 연결되어 있는 하나의 노드와 RPC 통신을 할 수 있음
+- 네트워크와 통신이 되어야 지갑의 기능을 할 수 있음
+
+# + src > App.js (SimpleStorageContract 삭제 전)
+컴파일을 진행하면 생기는 .json파일을 import 해옴   
+➔ 두가지 값을 가져옴
+
+state 상태   
+componentDidMount = useEffect[]와 같은 것임
+
+- RPC 통신
+```javascript
+const accounts = await web3.eth.getAccounts();
+```
+➔ 10개의 계정들이 나옴
+```javascript
+const networkId = await web3.eth.net.getId();
+```
+➔ 여기서 networkId는 "*"(=all)임. (참고로 가나쉬 5777) 
+
+```javascript
+const deployedNetwork = SimpleStorageContract.networks[networkId];
+```
+SimpleStorageContract.json 파일에서
+```json
+"networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xF3833bB61AF21BFEC9324Ea7a62Ef8d5622DB4D9",
+      "transactionHash": "0xfee2c7d25811e46a5488d5cef188300564d6daf8ad83c4ed5244e9fbd6f9a840"
+    }
+},
+```
+이부분을 넣은 것임
+
+```javascript
+const instance = new web3.eth.Contract(
+    SimpleStorageContract.abi,      // abi 값을 넣어준거임
+    deployedNetwork && deployedNetwork.address,     // 위에 주소값을 넣는다.
+);
+```
+
+# + ) componentDidMount
+componentDidMount ➔ web3 가져와서 메타마스크 연결
+
+```javascript
+useEffect(() => {
+
+}, [])
+```
+이 부분을 추가하여 getWeb3 가져옴
+
+1. import
+```javascript
+import getWeb3 from "./getWeb3";
+```
+
+getWeb3의 return 값은 Promise 객체라서 받을때 then 또는 async await으로 받아야 함
+
+```javascript
+const getweb = async ()=> {
+    let web3 = await getWeb3()
+    console.log(web3);
+}
+useEffect(()=>{
+    getweb()
+},[])
+```
+> 개발자 모드에서 콘솔로 확인
+
+
+
 
 
 
