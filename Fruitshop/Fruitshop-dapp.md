@@ -39,7 +39,11 @@ $ ganache-cli
     - metamask 계정 연결   
     ![metamask](/Fruitshop/img/metamask1.png)   
     > 이후 아래 실습은 Desktop ganache로 진행!
-
+    ++++ 새로운 터미널을 띄워 아래 코드를 입력하면 ganach-cli의 port넘버를 7545로 바꿀 수 있음
+    ```
+    ganache-cli -p 7545
+    ```
+    
 ## 3. truffle-config.js 파일 설정
 networks{} 내부에 아래 코드 추가
 ```javascript
@@ -239,8 +243,8 @@ const App = () => {
 
     getApple(instance)
 
-    // 내 계정 : 0xE6BE9186bC5f7Dbc5862F3bdC87AD9c3B042acBD
-    // account : ['0xE6BE9186bC5f7Dbc5862F3bdC87AD9c3B042acBD']
+    // 내 계정 : 0x0A1d2A25D5BF8646da58602715222F2Ab40A755e
+    // account : ['0x0A1d2A25D5BF8646da58602715222F2Ab40A755e']
   }
 
   // componentDidMount Web3 가져와서 메타마스크 연결 할거임
