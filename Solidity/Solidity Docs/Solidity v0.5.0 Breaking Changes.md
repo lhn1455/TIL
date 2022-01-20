@@ -4,10 +4,10 @@
 
 
 ## Semantic Only Changes (의미론적인 변화)
-> 이 섹션은 오직 의미론적인 변화, 즉 이미 존재하는 코드에서 잠재적으로 새롭고 다른 방식을 숨기는 변화들을 나열한다.
+> 이 섹션은 오직 의미론적인 변화, 즉 이미 존재하는 코드에서 잠재적으로 숨어있는 기존과는 다른 새로운 방식의 변화들을 나열한다.
 
-- 부호를 지닌 오른쪽 시프트 연산자(">>")는 지금 적절한 연산 시프트를 사용한다. 예를 들어, 0으로 반올림하는 것(rounding towards zero) 대신, 음의 무한대로 반올림(rounding towards negative infinity). 
-- `do...while`루프에서 `continue`문은 조건문을 건너뛴다. 그리고 이것은 아주 일반적인 경우이다. 이것은 루프의 body를 건너뛰기 위해 사용되곤 했다. 따라서, 조건이 false일때, 이 루프는 종료된다.
+- 부호를 지닌 오른쪽 시프트 연산자(">>")는 적절한 연산 시프트를 사용한다. 예를 들어, 0으로 반올림하는 것(rounding towards zero) 대신, 음의 무한대로 반올림(rounding towards negative infinity). 
+- `do...while`루프에서 `continue`문은 조건문을 건너뛴다. 그리고 이것은 일반적인 `continue`문과 같다. 이것은 루프의 body를 건너뛰기 위해 사용된다. 따라서, 조건이 false일때, 이 루프는 종료된다.
 - 특정한 단일 `bytes` 파라미터가 주어졌을때, `.call()`, `.delegatecall()` 그리고 `.staticcall`함수는 더이상 pad 하지 않는다.
 - `pure`과 `view`함수는 EVM 버전이 Byzantium이거나 그 이상일 경우 `call` 대신 opcode의 `STATICCALL`을 사용하여 호출 된다. (EVM레벨에서의 상태변화 허용X)
 - ABI encoder는 external 함수 호출될 때와 `abi.encode`가 사용 될때 calldata(`msg.date`와 external 함수 파라미터)로 부터 byte arrays와 string을 적절히 pad한다. unpadded된 encoding을 위해서는 `abi.encodePacked`를 사용.
