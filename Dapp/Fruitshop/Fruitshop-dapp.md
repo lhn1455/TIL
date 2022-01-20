@@ -29,15 +29,15 @@ $ ganache-cli
 - Desktop에서 ganache 앱 실행 시 port : 7545
 - ganache-cli 실행 시 port : 8545
     - ganache-cli 실습 시 메타마스크에 계정 불러오기)   
-    ![ganache-cli](/Fruitshop/img/ganache.png)   
+    ![ganache-cli](/Dapp/Fruitshop/img/ganache.png)   
         > 여기서 0번 account를 가져다 쓰기위해 0번 private key를 복사   
 
     - metamask   
-    ![metamask](/Fruitshop/img/metamask.png)   
+    ![metamask](/Dapp/Fruitshop/img/metamask.png)   
 
         > 비공개키 자리에 0번 private key 복사한것을 붙여넣기  
     - metamask 계정 연결   
-    ![metamask](/Fruitshop/img/metamask1.png)   
+    ![metamask](/Dapp/Fruitshop/img/metamask1.png)   
     > 이후 아래 실습은 Desktop ganache로 진행!
     ++++ 새로운 터미널을 띄워 아래 코드를 입력하면 ganach-cli의 port넘버를 7545로 바꿀 수 있음
     ```
@@ -82,7 +82,7 @@ module.exports = {
 $ truffle create contract Fruitshop
 ```
 contracts 폴더 안에 Fruitshop.sol 생성   
-![contract](/Fruitshop/img/contract.png) 
+![contract](/Dapp/Fruitshop/img/contract.png) 
 
 
 - Fruitshop.sol 작성
@@ -137,7 +137,7 @@ contract Fruitshop {
 $ truffle create migration Fruitshop
 ```
 migrations 폴더 안에 js파일 생성
-![deploy](/Fruitshop/img/deploy.png)   
+![deploy](/Dapp/Fruitshop/img/deploy.png)   
 - _fruitshop.js 파일 수정
 ```javascript
 var Fruitshop = artifacts.require("./Fruitshop.sol");
@@ -154,13 +154,13 @@ module.exports = function(_deployer) {
 ```
 $ truffle compile
 ```
-![compile](/Fruitshop/img/compile.png)  
+![compile](/Dapp/Fruitshop/img/compile.png)  
 client > src > contracts > Fruitshop.json / Migrations.json 생성
 
 ```
 $ truffle migrate
 ```
-![migrate](/Fruitshop/img/migrate.png)  
+![migrate](/Dapp/Fruitshop/img/migrate.png)  
 
 ## 7. App.js 수정
 ```javascript
@@ -291,26 +291,26 @@ const getweb = async ()=> {
 $ npm run start
 ```
 
-![meta](/Fruitshop/img/meta.png)
+![meta](/Dapp/Fruitshop/img/meta.png)
 
 > 이후 Fruitshop이 deploy되지 않았다는 오류가 뜨면 client > src > contracts 에서 .json파일 삭제 후 다시 compile & migrate   
 **compile과 migrate는 배포파일까지 작성 완료 후 해야 함!**   
 
 - buy 클릭 후   
 
-![meta](/Fruitshop/img/meta1.png)   
+![meta](/Dapp/Fruitshop/img/meta1.png)   
 
 - buy 하는 트랜잭션 완료 : 10 ETH 차감  
 
-![buy](/Fruitshop/img/buy.png)
+![buy](/Dapp/Fruitshop/img/buy.png)
 
 - sell 클릭 후   
 
-![sell](/Fruitshop/img/sell.png)
+![sell](/Dapp/Fruitshop/img/sell.png)
 
 - sell 하는 트랜잭션 완료 : 10 ETH 복구
 
-![sell2](/Fruitshop/img/sell2.png)
+![sell2](/Dapp/Fruitshop/img/sell2.png)
 
 # + injected web3
 - user ➔ client가 web3를 통해서 접근 ➔ 메타마스크 중 어떤 계정과 연결
