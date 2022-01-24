@@ -60,8 +60,8 @@
 
         - [Security](https://github.com/lhn1455/TIL/tree/main/Solidity/Solidity%20Docs/Security)
             - [v0.5.10](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity%20Docs/Security/v0.5.10.md)
-            - [v0.6.0]()
-            - [v0.8.12]()
+            - [v0.6.0](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity%20Docs/Security/v0.6.0.md)
+            - [v0.8.12](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity%20Docs/Security/v0.8.12.md)
         <br>
 
 
