@@ -10,13 +10,13 @@
 - `do...while`루프에서 `continue`문은 조건문을 건너뛴다. 그리고 이것은 일반적인 `continue`문과 같다. 이것은 루프의 body를 건너뛰기 위해 사용된다. 따라서, 조건이 false일때, 이 루프는 종료된다.
 - 특정한 단일 `bytes` 파라미터가 주어졌을때, `.call()`, `.delegatecall()` 그리고 `.staticcall`함수는 더이상 pad 하지 않는다.
 - `pure`과 `view`함수는 EVM 버전이 Byzantium이거나 그 이상일 경우 `call` 대신 opcode의 `STATICCALL`을 사용하여 호출 된다. (EVM레벨에서의 상태변화 허용X)
-- ABI encoder는 external 함수 호출될 때와 `abi.encode`가 사용 될때 calldata(`msg.date`와 external 함수 파라미터)로 부터 byte arrays와 string을 적절히 pad한다. unpadded된 encoding을 위해서는 `abi.encodePacked`를 사용.
+- ABI encoder는 external 함수가 호출될 때와 `abi.encode`가 사용 될때 calldata(`msg.date`와 external 함수 파라미터)로 부터 byte arrays와 string을 적절히 pad한다. unpadded된 encoding을 위해서는 `abi.encodePacked`를 사용.
 - ABI decoder는 전달된 calldata가 너무 짧거나 범위를 벗어났을때 함수의 시작부분 또는 `abi.decode()`에서 revert한다. 지저분한 상위 비트는 무시됨.
 - external 함수 호추에 모든 사용가능한 가스를 forward한다.   
 
 ## Semantic and Syntactic Changes (의미론적, 문법적인 변화)
  > 이 섹션은 문법적, 의미적인 부분에 영향을 주는 중요한 변화들이다.
- - `.call(),` `.delegatecall()`, `staticcall()`, `keccak256()`, `sha256()` 그리고 `ripemd160()`함수는 하나의 `bytes`인자만 받는다. 또한 인자는 pad되지 않는다. 이것은 인자들이 연결되는 방법을 더 분명하고 명확하게 만들기위해 변화되었다. 모든 `.call()` 을 `.call("")`로 바꿔라. 그리고 모든 `.call(signature, a, b, c)`를 `.call(abi.encodeWithSignature(signature, a, b, c))`로 바꾸어 사용해라. (이것만 값 타입으로 작동한다.)
+ - `.call(),` `.delegatecall()`, `staticcall()`, `keccak256()`, `sha256()` 그리고 `ripemd160()`함수는 하나의 `bytes`인자만 받는다. 또한 인자는 pad되지 않는다. 이것은 인자들이 연결되는 방법을 더 분명하고 명확하게 만들기위해 변화되었다. 모든 `.call()` 을 `.call("")`로 바꿔라. 그리고 모든 `.call(signature, a, b, c)`를 `.call(abi.encodeWithSignature(signature, a, b, c))`로 바꾸어 사용해라. (이것만 값 타입으로 허용한다.)
     > `.call()` ➔ `.call("")`   
  `.call(signature, a, b, c)` ➔ `.call(abi.encodeWithSignature(signature, a, b, c))`
 - keccak256(a, b, c)를 keccak256(abi.encodePacked(a, b, c))로 변경한다
@@ -26,7 +26,7 @@
 - 솔리디티는 함수 로컬 변수에 대해 C99-style scoping rules을 적용한다. 즉, 변수가 선언되어지고 난 후, 오직 같은 범위 또는 포함된 범위 안에서만 사용될 수 있다. `for`loop의 초기화 블록에 선언된 변수는 루프 내부 어느 지점에서든 사용이 가능하다.   
 
 ## Explicitness Requirements 명시적 요구사항
-> 이 섹션은 지금 코드들이 더 명시적으로 되어야하는 부분들을 나열한다. 이 토픽들의 대부분 컴파일러가 의견을 제안할 것이다.
+> 이 섹션은 코드들이 더 명시적으로 되어야하는 부분들을 나열한다. 이 토픽들의 대부분 컴파일러가 의견을 제안할 것이다.
 - 모든 함수는 가시성을 명시적으로 작성해야 한다. (변수 포함)
 - 구조체, 배열, 매핑 타입 변수는 명시적으로 데이터 위치를 작성해야 한다. (함수의 매개변수와 리턴값 포함 / external 함수의 매개변수의 데이터 위치 : calldata)
     >예시)   
