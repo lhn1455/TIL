@@ -57,8 +57,8 @@
         - [Solidity v0.5.0 Breaking Changes](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity%20Docs/Solidity%20v0.5.0%20Breaking%20Changes.md)
         - [Solidity v0.6.0 Breaking Changes](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity%20Docs/Solidity%20v0.6.0%20Breaking%20Changes.md)
         <br>
-        - [Solidity v0.7.0 Breaking Changes]()
-        - [Solidity v0.8.0 Breaking Changes]()
+        - [Solidity v0.7.0 Breaking Changes](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity%20Docs/Solidity%20v0.7.0%20Breaking%20Changes.md)
+        - [Solidity v0.8.0 Breaking Changes](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity%20Docs/Solidity%20v0.8.0%20Breaking%20Changes.md)
 
         - [Security](https://github.com/lhn1455/TIL/tree/main/Solidity/Solidity%20Docs/Security)
             - [v0.5.10](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity%20Docs/Security/v0.5.10.md)
