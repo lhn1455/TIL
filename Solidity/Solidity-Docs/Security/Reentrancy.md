@@ -139,7 +139,7 @@ function withdraw(uint256 _amount) public {
 → 스마트컨트랙트를 가스에 의존적으로 작성하면 오히려 향후 동작에 문제가 생길 수 있다는 것
 
 따라서, 해결책은
-## 다시 call()을 사용,
+## 다시 call()을 사용!
 다시말해서
 ## "Check-Effects Interations"패턴으로 재진입 문제를 해결하고 call()을 사용
 예시)
