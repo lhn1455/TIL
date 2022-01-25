@@ -52,22 +52,22 @@
         <br>
 
 - Solidity
-    - [Solidity Docs](https://github.com/lhn1455/TIL/tree/main/Solidity/Solidity%20Docs)
-        - [1. Introduction to Smart Contracts](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity%20Docs/1.%20Introduction%20to%20Smart%20Contracts.md)
-        - [Solidity v0.5.0 Breaking Changes](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity%20Docs/Solidity%20v0.5.0%20Breaking%20Changes.md)
-        - [Solidity v0.6.0 Breaking Changes](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity%20Docs/Solidity%20v0.6.0%20Breaking%20Changes.md)
-        - [Solidity v0.7.0 Breaking Changes](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity%20Docs/Solidity%20v0.7.0%20Breaking%20Changes.md)
-        - [Solidity v0.8.0 Breaking Changes](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity%20Docs/Solidity%20v0.8.0%20Breaking%20Changes.md)
+    - [Solidity-Docs](https://github.com/lhn1455/TIL/tree/main/Solidity/Solidity-Docs)
+        - [1. Introduction to Smart Contracts](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity-Docs/1.%20Introduction%20to%20Smart%20Contracts.md)
+        - [Solidity v0.5.0 Breaking Changes](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity-Docs/Solidity%20v0.5.0%20Breaking%20Changes.md)
+        - [Solidity v0.6.0 Breaking Changes](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity-Docs/Solidity%20v0.6.0%20Breaking%20Changes.md)
+        - [Solidity v0.7.0 Breaking Changes](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity-Docs/Solidity%20v0.7.0%20Breaking%20Changes.md)
+        - [Solidity v0.8.0 Breaking Changes](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity-Docs/Solidity%20v0.8.0%20Breaking%20Changes.md)
         <br>
 
-        - [Security](https://github.com/lhn1455/TIL/tree/main/Solidity/Solidity%20Docs/Security)
-            - [v0.5.10](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity%20Docs/Security/v0.5.10.md)
-            - [v0.6.0](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity%20Docs/Security/v0.6.0.md)
-            - [v0.8.12](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity%20Docs/Security/v0.8.12.md)
-            - [보안코딩]()
-            - [Reentrancy]()
-            - [ProxyContract]()
-            - [tx.origin과 msg.sender]()
+        - [Security](https://github.com/lhn1455/TIL/tree/main/Solidity/Solidity-Docs/Security)
+            - [v0.5.10](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity-Docs/Security/v0.5.10.md)
+            - [v0.6.0](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity-Docs/Security/v0.6.0.md)
+            - [v0.8.12](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity-Docs/Security/v0.8.12.md)
+            - [보안코딩](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity-Docs/Security/%EB%B3%B4%EC%95%88%EC%BD%94%EB%94%A9.md)
+            - [Reentrancy](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity-Docs/Security/Reentrancy.md)
+            - [ProxyContract](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity-Docs/Security/ProxyContract.md)
+            - [tx.origin과 msg.sender](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity-Docs/Security/tx.origin%EA%B3%BC%20msg.sender.md)
         <br>
 
 
