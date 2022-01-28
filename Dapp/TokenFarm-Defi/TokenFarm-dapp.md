@@ -60,36 +60,36 @@ truffle exec scripts/issue-token.js
 2. 새로운 토큰이 생성되면 Dai 토큰과 1:1 비율로 Dapp 토큰(리워드토큰)을 보상 받음
 3. 스테이킹을 철회하고 싶은 경우 언스테이킹을 함
 
-![초기화면](/Dapp/Defi/img/tokenfarm.png)   
+![초기화면](/Dapp/TokenFarm-dapp/img/tokenfarm.png)   
 > 초기 화면   
 <br>
 <br>
 
-![권한 부여 화면](/Dapp/Defi/img/tokenfarm1.png)   
+![권한 부여 화면](/Dapp/TokenFarm-dapp/img/tokenfarm1.png)   
 > 권한 부여 화면   
 
 <br>
 <br>
 
-![초기화면](/Dapp/Defi/img/tokenfarm2.png)   
+![초기화면](/Dapp/TokenFarm-dapp/img/tokenfarm2.png)   
 > 권한 부여 후 스테이킹 과정   
 
 <br>
 <br>
 
-![초기화면](/Dapp/Defi/img/tokenfarm3.png)   
+![초기화면](/Dapp/TokenFarm-dapp/img/tokenfarm3.png)   
 > 스테이킹 후 스테이킹 잔액과 mDAI 잔액 변화  
 
 <br>
 <br>
 
-![초기화면](/Dapp/Defi/img/tokenfarm4.png)   
+![초기화면](/Dapp/TokenFarm-dapp/img/tokenfarm4.png)   
 > 리워드 토큰 발행 (스테이킹한 토큰과 1:1 비율로 보상)  
 
 <br>
 <br>
 
-![초기화면](/Dapp/Defi/img/tokenfarm5.png)   
+![초기화면](/Dapp/TokenFarm-dapp/img/tokenfarm5.png)   
 
 > 리워드 토큰 잔액 변화   
 <br>
