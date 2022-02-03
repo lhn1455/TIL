@@ -123,12 +123,15 @@
 <br>
 
 ## ReactJS
-
-
-
-
-
-
-
+> 리액트 설치 → 두개의 Javascript 코드 import
+```javascript
 <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+```
+
+
+
+
+
+
+
