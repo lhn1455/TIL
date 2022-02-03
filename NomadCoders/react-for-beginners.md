@@ -7,7 +7,7 @@
 <br>
 
 ### 기본 템플릿
-```js
+```html
 <!DOCTYPE html>
 <html>
     <body></body>
@@ -19,26 +19,26 @@
 
 1. 버튼 만들기   
     - 버튼 만들기   
-    ```js
+    ```javascript
     <body>
         <button id="btn">Click me</button>
     </body>
     ```
     - Javascript에서 button 가져오기   
-    ```js
+    ```javascript
     <script>
     const button = document.getElementById("btn")
     </script>
     ```
     - Click Event 감지하기
-    ```js
+    ```javascript
     <script>
     const button = document.getElementById("btn")
     button.addEventListener("click");
     </script>
     ```
     - function 만들기
-    ```js
+    ```javascript
     function handleClick() {
             console.log("I have been clicked")
             counter = counter + 1;
@@ -46,19 +46,19 @@
         }
     ```
     - Click Event 수정
-    ```js
+    ```javascript
     button.addEventListener("click", handleClick);
     ```
 
 2. 클릭 갯수 세기
     - 텍스트 만들기
-    ```js
+    ```javascript
     <script>
     <span>Total clicks : 0</span>
     </script>
     ```
     - 카운터 만들기
-    ```js
+    ```javascript
     <script>
         let counter = 0;
         function handleClick() {
@@ -68,11 +68,11 @@
     ```
     → counter 데이터가 바뀌어도 HTML에 반영되지 않음
     - Javascript에서 span을 가져옴
-    ```js
+    ```javascript
     const span = document.querySelector("span")
     ```
     - 데이터 수정
-    ```js
+    ```javascript
     <script>
         let counter = 0;
         function handleClick() {
@@ -82,41 +82,41 @@
     </script>
     ```
     - 이전 텍스트 기억하도록 만들기
-    ```js
+    ```javascript
     span.innerText = `Total clicks : ${counter}`;
     ```
 
 ## 요약
 > 1. HTML 작성
-```js
+```javascript
 <body>
     <span>Total clicks : 0</span>
     <button id="btn">Click me</button>
 </body>
 ```
 > 2. Javascript에서 가져오기
-```js
+```javascript
 <script>
     const span = document.querySelector("span")
     const button = document.getElementById("btn")
 </script>
 ```
 > 3. Event 감지하기
-```js
+```javascript
 <script>
     button.addEventListener("click", handleClick);
 </script>
 ```
 > 4. 데이터 업데이트
-```js
+```javascript
     counter = counter + 1;
 ```
 > 5. HTML 업데이트
-```js
+```javascript
     span.innerText = `Total clicks : ${counter}`;
 ```
 
-## 💻 전체 코드 - [Vanilla.html]()
+## 💻 전체 코드 - [Vanilla.html](https://github.com/lhn1455/TIL/blob/main/NomadCoders/codes/vanilla.html)
 
 <br>
 <br>
