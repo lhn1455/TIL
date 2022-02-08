@@ -54,7 +54,7 @@ legacy bytecode optimizer와 함께, Yul optimizer는 `--optimizer`
 명령어로 컴파일러를 호출할 때 default로 사용된다. 이것은 `--no-optimize-yul` 을 사용하여 비활성화 시킬 수 있다.   
 이것은 일반적으로 ABI coder v2를 사용하는 코드에 영향을 미친다.
 
-- C API Changes
+- C API Changes   
 `libsolc` 의 C API를 사용하는 client code는 컴파일러에 의해 사용되는 메모리에 관리된다. 이러한 변경사항에 일치시키기 위해, 몇몇 추가적 변경사항이 있다.   
     - `solidity_free` ➔ `solidity_reset` 이름 변경
     - `solidity_alloc`,`solidity_free` 추가
