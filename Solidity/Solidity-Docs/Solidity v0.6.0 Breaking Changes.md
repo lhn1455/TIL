@@ -42,15 +42,20 @@
 - New Error Reporter   
 새로운 New Error Reporter가 도입되었고, 그것은 command line에서 에러 메세지에 대한 접근성이 더 좋도록 만드는 것을 목표로 한다. 이것이 default로 사용되어진다. (이전 버전의 error reporter로 돌아가려면 `--old-reporter`)
 
-- Metadata Hash Options
+- Metadata Hash Options   
 현재 컴파일러는 컨트랙트 메타데이터안에 세부사항위해 bytecode의 끝에 default로 메타데이터의 IPFS 해시를 첨부한다. 0.6.0이전 버전에서는 컴파일러가 default로 Swarm 해시를 첨부했었고, 이 기능을 계속 지원하도록 새로운 command line option `-metadata-hash`가 도입되었다. 이것은 `-metadata-hash` command line option에 `ipfs` 또는 `swarm`을 값으로 넘김으로써 첨부될 해시를 사용자가 선택할 수 있도록 하였다. 
 
 이러한 변화는 Standard JSON Interface를 기반으로 사용되어질 수 있으며, 컴파일러에 의해 만들어진 메타데이터 JSON에 영향을 미친다.   
 
 메타데이터를 읽기 위한 권장 방법은 CBOR encoding의 길이를 결정하기 위해 마지막 두 바이트를 읽고, 메타데이터 section안에서 설명된 data block안에서 적절한 decoding을 하는것이다.
 
-- Yul Optimizer
-legacy bytecode optimizer와 함께, Yul optimizer는 `--optimizer`명령어로 컴파일러를 호출할 때 사용할 수 있다. 이러한 변경사항에 일치시키기 위해, 몇몇 추가적 변경사항이 있다.
+- Yul Optimizer   
+legacy bytecode optimizer와 함께, Yul optimizer는 `--optimizer`
+명령어로 컴파일러를 호출할 때 default로 사용된다. 이것은 `--no-optimize-yul` 을 사용하여 비활성화 시킬 수 있다.   
+이것은 일반적으로 ABI coder v2를 사용하는 코드에 영향을 미친다.
+
+- C API Changes
+`libsolc` 의 C API를 사용하는 client code는 컴파일러에 의해 사용되는 메모리에 관리된다. 이러한 변경사항에 일치시키기 위해, 몇몇 추가적 변경사항이 있다.   
     - `solidity_free` ➔ `solidity_reset` 이름 변경
     - `solidity_alloc`,`solidity_free` 추가
     - `solidity_compile`의 return ➔ string (**string** that must be explicitly freed via `solidity_free()`)
