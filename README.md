@@ -53,10 +53,10 @@
 - NomadCoders
 
 - OpenZeppelin
-    - [contract]()
-    - [AccessControl]()
-    - [ERC-721]()
-    - [ERC-1155]()
+    - [contract](https://github.com/lhn1455/TIL/blob/main/OpenZeppelin/1.%20contract.md)
+    - [AccessControl](https://github.com/lhn1455/TIL/blob/main/OpenZeppelin/2.%20AccessControl.md)
+    - [ERC-721](https://github.com/lhn1455/TIL/blob/main/OpenZeppelin/3.%20ERC-721.md)
+    - [ERC-1155](https://github.com/lhn1455/TIL/blob/main/OpenZeppelin/4.%20ERC-1155.md)
 
 - JAVA
     - [DesignPattern](https://github.com/lhn1455/TIL/tree/main/JAVA/DesignPattern)
