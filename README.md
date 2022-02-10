@@ -53,8 +53,8 @@
 - NomadCoders
     - Javascript
         - [Javascript-for-beginners](https://github.com/lhn1455/TIL/tree/main/NomadCoders/Javascript/Javasript-for-beginners)
-            - [2.Welcome_to_Javascript](https://github.com/lhn1455/TIL/blob/main/NomadCoders/Javascript/Javasript-for-beginners/2.Welcome_to_Javascript.md)
-            - [3.Javascript_on_the_browser](https://github.com/lhn1455/TIL/blob/main/NomadCoders/Javascript/Javasript-for-befinners/3.Javascript_on_the_browser.md)
+            - [2. Welcome_to_Javascript](https://github.com/lhn1455/TIL/blob/main/NomadCoders/Javascript/Javasript-for-beginners/2.Welcome_to_Javascript.md)
+            - [3. Javascript_on_the_browser](https://github.com/lhn1455/TIL/blob/main/NomadCoders/Javascript/Javasript-for-befinners/3.Javascript_on_the_browser.md)
 
     - ReactJS
         - [react-for-beginners](https://github.com/lhn1455/TIL/tree/main/NomadCoders/ReactJS/react-for-beginners)
