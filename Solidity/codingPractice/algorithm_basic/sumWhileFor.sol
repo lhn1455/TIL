@@ -4,6 +4,8 @@ pragma solidity >=0.7.0 <0.9.0;
 
 contract SumWhile {
 
+
+    //while문 sum 구하기
     function sumWhile(uint256 n) public pure returns(uint256, uint256) {
         uint256 sum;
         uint256 i = 1;
@@ -14,7 +16,7 @@ contract SumWhile {
         }
         return (n, sum);
     } 
-
+    //for문 sum 구하기
     function sumFor(uint256 n) public pure returns(uint256, uint256) {
         uint256 sum;
         uint256 i;
@@ -25,14 +27,15 @@ contract SumWhile {
         return (n, sum);
     } 
     
-
+    //Gauss sum구하기
     function sumGauss(uint256 n) public pure returns(uint256, uint256) {
         uint256 sum;
 
-        sum = (1 + n) * (n / 2);
+        sum = (1 + n) * (n / 2); //가우스 공식
         return (n, sum);
     } 
 
+    //a부터 b까지 sum 구하기
     function sumOf(uint256 a, uint256 b) public pure returns (uint256, uint256, uint256) {
         uint256 sum;
         uint256 i;
@@ -54,6 +57,7 @@ contract SumWhile {
         return( a, b, sum);
     }
     
+    //최대값 최소값 판별 후 최소값 부터 최대값까지 sum 구하기
     function sumOf2(uint256 a, uint256 b) public pure returns(uint256, uint256, uint256) {
         uint256 sum;
         uint256 i;

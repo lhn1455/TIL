@@ -8,6 +8,7 @@ contract Max3 {
     event Min(uint256);
     event TernaryOperator(uint256);
 
+    //최대값 구하기
     function max3 (uint256 a, uint256 b, uint256 c) public returns(uint256) {
         uint256 max = a;
         if (b > max) max = b;
@@ -16,7 +17,7 @@ contract Max3 {
         emit Max(max);   
         return max;
     }
-
+    //최소값 구하기
     function min3 (uint256 a, uint256 b, uint256 c) public returns(uint256) {
         uint256 min = a;
         if (b < min) min = b;
@@ -25,7 +26,7 @@ contract Max3 {
         emit Min(min);   
         return min;
     }
-
+    //중앙값 구하기 1
     function median (uint256 a, uint256 b, uint256 c) public pure returns(uint256) {
         if ( a >= b)
             if (b >= c )
@@ -42,7 +43,7 @@ contract Max3 {
             return b;
 
     }
-
+    //중앙값 구하기 2
     function median2 (uint256 a, uint256 b, uint256 c) public pure returns(uint256) {
         if ((b >= a && c <= a) || ( b <= a && c >= a))
             return a;
@@ -52,6 +53,7 @@ contract Max3 {
         return c;
     }
 
+    //부호 판별
     function judgeSign (int n) public pure returns(string memory) {
         if (n > 0)
             return "plus";
@@ -61,12 +63,12 @@ contract Max3 {
             return "zero";
     }
 
-    
+    //3항 연산자 1
     function ternaryOperator (uint256 b, uint256 c) public pure returns (uint256) {
         uint a = ( b > c )? b : c ;
         return a;
     }
-
+    //3항 연산자 2
      function ternaryOperator2 (uint256 b, uint256 c) public returns (uint256) {
         uint a = ( b > c )? b : c ;
         emit TernaryOperator( a = (  b > c )? b : c);
