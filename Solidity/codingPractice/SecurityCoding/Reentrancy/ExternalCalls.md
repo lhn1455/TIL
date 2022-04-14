@@ -117,14 +117,18 @@ ExternalContract(someAddress).deposit.value(100)();
 ```
 
 ## ✎ Send vs Transfer vs Call
-- send : 2300 gas를 소비(call과의 차이점), 성공여부를 true 또는 false로 리턴. (실패시 호출 컨트랙트에서 해결) 
+- send : 2300 gas를 소비(call과의 차이점), 성공여부를 true 또는 false로 리턴.   
+(실패시 호출 컨트랙트에서 해결) 
 - transfer : 2300 gas를 소비, 실패시 에러를 발생
-    → In a failure case, the transfer function reverts. (실패시 revert, 지불받는 컨트랙트가 해결)
+    → In a failure case, the transfer function reverts.   
+     (실패시 revert, 지불받는 컨트랙트가 해결)
 
-    → If a payment is made, either the fallback() or receive() function in the receiving contract is triggered. This provides the opportunity for the receiving contract to react upon a payment. (지불이 이루어지면 지불 받는 컨트랙트의 fallback() 또는 receive() 함수가 작동함. 이것은 지불받는 컨트랙트가 지불에 대처할 수 있는 기회를 제공함.)
+    → If a payment is made, either the fallback() or receive() function in the receiving contract is triggered. This provides the opportunity for the receiving contract to react upon a payment.   
+    (지불이 이루어지면 지불 받는 컨트랙트의 fallback() 또는 receive() 함수가 작동함. 이것은 지불받는 컨트랙트가 지불에 대처할 수 있는 기회를 제공함.)
 
 - call : 가변적인 gas 소비 (gas값 지정 가능), 성공여부를 true 또는 false로 리턴   
-    → 재진입(reentrancy) 공격 위험성 있음, 2019년 12월 이후 call 사용을 추천. 
+    → 재진입(reentrancy) 공격 위험성 있음, 2019년 12월 이후 call 사용을 추천.   
+    (실패시 호출 컨트랙트에서 해결) 
     ```solidity
     (bool success, bytes memory data)= receivingAddress.call{value: 100}("");
     ```
