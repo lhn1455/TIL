@@ -240,3 +240,7 @@ Don't assume contracts are created with zero balance An attacker can send ether 
 
 컨트랙트가 제로 잔고로 생성된다고 가정XX.   
 공격자는 생성되기 전에 컨트랙트 주소로 이더를 보낼 수 있음. 컨트랙트가 초기 상태에 잔액이 0이라고 가정해서는 안됨.
+
+> **참고**   
+External Calls  
+https://consensys.github.io/smart-contract-best-practices/development-recommendations/general/external-calls/
