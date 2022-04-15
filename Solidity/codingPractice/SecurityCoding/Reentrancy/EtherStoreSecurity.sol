@@ -9,7 +9,7 @@ contract EtherStoreSecutiry {
     mapping(address => uint256) public lastWithdrawTime;
     mapping(address => uint256) public balances;
 
-    //입금함수 
+    //입금함수  
     function depositFunds() public payable {
         balances[msg.sender] += msg.value;
     }
