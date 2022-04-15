@@ -79,6 +79,38 @@ function sum(uint[] memory array) internal pure returns (uint result) {
 ```
 이 예시에서, 함수의 추가 비용은 전체 체크 해제를 무의미하게 만들 수 있지만, 루프의 핵심이 상당한 수의 수학 연산을 포함하고 그 중 일부만 보호가 필요한 경우에는 SafeMath가 유용할 것이다.
 
+```solidity
+// SPDX-License-Identifier: CC0-1.0
+pragma solidity ^0.8.0;
+
+contract OverflowCost {
+    event Log(uint256);
+    function add(uint256 x, uint256 y) external { emit Log(x + y); }
+    function sub(uint256 x, uint256 y) external { emit Log(x - y); }
+    function mul(uint256 x, uint256 y) external { emit Log(x * y); }
+    function div(uint256 x, uint256 y) external { emit Log(x / y); }
+    function mod(uint256 x, uint256 y) external { emit Log(x % y); }
+}
+
+contract OverflowCostUnchecked {
+    event Log(uint256);
+    function add(uint256 x, uint256 y) external { unchecked { emit Log(x + y); } }
+    function sub(uint256 x, uint256 y) external { unchecked { emit Log(x - y); } }
+    function mul(uint256 x, uint256 y) external { unchecked { emit Log(x * y); } }
+    function div(uint256 x, uint256 y) external { unchecked { emit Log(x / y); } }
+    function mod(uint256 x, uint256 y) external { unchecked { emit Log(x % y); } }
+}
+```
+for add(17,42), unchecked saves 61 gas
+for sub(42,17), unchecked saves 58 gas
+for mul(17,42), unchecked saves 81 gas
+for div(42,17), unchecked saves 32 gas
+for mod(42,17), unchecked saves 32 gas
+using 0.8.0 with optimizations.
+
+> **참고**   
+Discussion: Should we remove the SafeMath library for Solidity 0.8?   
+(https://github.com/OpenZeppelin/openzeppelin-contracts/issues/2465)
 
 
 
