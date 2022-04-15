@@ -2,7 +2,7 @@
 - fallback 함수를 악용한 취약점
 - fallback 함수에서 다시 출금 함수(withdrawFunds)를 호출
 
-[EtherStore.sol]()
+보안 취약 컨트랙트 : [EtherStore.sol]()
 ```solidity
 contract EtherStore {
 
@@ -33,7 +33,7 @@ contract EtherStore {
     }
 }
 ```
-[Attack.sol]()
+공격 컨트랙트 : [Attack.sol]()
 
 ```solidity
 import "contracts/Reentrancy/EtherStore.sol"; //경로 주의
@@ -92,6 +92,13 @@ contract Attack {
     임계구역에 들어갈 권한 검사   
     ex) `bool reEntrancyMutex = false;` 재진입 가능   
         `bool reEntrancyMutex = true;` false로 바뀔때 까지 재진입 불가능
+
+보안 적용 컨트랙트 : [EtherStoreSecurity.sol]()
 <hr>
+
+## 실제 사례 : DAO
+
+DAO는 이더리움 초기 개발에서 일어난 주요 해킹들 중 하나로, 당시 계약금은 1억 5000만 달러가 넘었고, 이로 인해 Ethereum Classic(ETC)이 만들어 졌음.   
+DAO 사건으로 3,600,000ETH를 해킹당함
 
 
