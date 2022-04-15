@@ -2,7 +2,7 @@
 - fallback 함수를 악용한 취약점
 - fallback 함수에서 다시 출금 함수(withdrawFunds)를 호출
 
-보안 취약 컨트랙트 : [EtherStore.sol]()
+보안 취약 컨트랙트 : [EtherStore.sol](https://github.com/lhn1455/TIL/blob/main/Solidity/codingPractice/SecurityCoding/Reentrancy/EtherStore.sol)
 ```solidity
 contract EtherStore {
 
@@ -33,7 +33,7 @@ contract EtherStore {
     }
 }
 ```
-공격 컨트랙트 : [Attack.sol]()
+공격 컨트랙트 : [Attack.sol](https://github.com/lhn1455/TIL/blob/main/Solidity/codingPractice/SecurityCoding/Reentrancy/Attack.sol)
 
 ```solidity
 import "contracts/Reentrancy/EtherStore.sol"; //경로 주의
@@ -86,6 +86,7 @@ contract Attack {
 ## 예방 기법
 
 1. transfer 함수 호출 (권장 안함)
+참고 : [ExternalCalls.md](https://github.com/lhn1455/TIL/blob/main/Solidity/codingPractice/SecurityCoding/Reentrancy/ExternalCalls.md)
 2. The checks-effects-interactions pattern (외부 호출 전에 값을 먼저 수정)
 3. 뮤텍스 이용 (이전 호출을 종료한 후 다음 호출을 실행)
     > **뮤텍스 Mutex(Mutual Exclusion)**      
@@ -93,7 +94,7 @@ contract Attack {
     ex) `bool reEntrancyMutex = false;` 재진입 가능   
         `bool reEntrancyMutex = true;` false로 바뀔때 까지 재진입 불가능
 
-보안 적용 컨트랙트 : [EtherStoreSecurity.sol]()
+보안 적용 컨트랙트 : [EtherStoreSecurity.sol](https://github.com/lhn1455/TIL/blob/main/Solidity/codingPractice/SecurityCoding/Reentrancy/EtherStoreSecurity.sol)
 <hr>
 
 ## 실제 사례 : DAO
