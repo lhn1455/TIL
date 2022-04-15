@@ -101,11 +101,11 @@ contract OverflowCostUnchecked {
     function mod(uint256 x, uint256 y) external { unchecked { emit Log(x % y); } }
 }
 ```
-for add(17,42), unchecked saves 61 gas
-for sub(42,17), unchecked saves 58 gas
-for mul(17,42), unchecked saves 81 gas
-for div(42,17), unchecked saves 32 gas
-for mod(42,17), unchecked saves 32 gas
+for add(17,42), unchecked saves 61 gas   
+for sub(42,17), unchecked saves 58 gas   
+for mul(17,42), unchecked saves 81 gas   
+for div(42,17), unchecked saves 32 gas   
+for mod(42,17), unchecked saves 32 gas   
 using 0.8.0 with optimizations.
 
 > **참고**   
