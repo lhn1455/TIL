@@ -37,12 +37,12 @@ function transfer(address to, uint tokens) public returns (bool success);
     
 - 전송된 파라미터
     
-    > to : a9059cbb000000000000000000000000deaddeadde
+    > to : a9059cbb000000000000000000000000deaddeadde   
     tokens : 56bc75e2d63100000 (100tokens)
     > 
 - 읽힌 파라미터
     
-    > to : a9059cbb000000000000000000000000deaddeadde**00**
+    > to : a9059cbb000000000000000000000000deaddeadde**00**   
     tokens : 56bc75e2d63100000**00** (25600tokens)
     > 
 
