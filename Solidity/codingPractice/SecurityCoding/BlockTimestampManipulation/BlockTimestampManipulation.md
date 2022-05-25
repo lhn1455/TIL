@@ -60,4 +60,4 @@ contract Roulette {
     - 이더리움은 10초당 하나의 블록이 생성되고 일주일이면 대략 60,480개의 블록이 생성됩니다.
     - 블록 번호는 블록 타임스탬프와는 다르게 채굴자가 쉽게 조작할 수 없기 때문에 블록의 생성 시간과 블록 넘버를 사용하면 안전한 컨트랙트를 작성할 수 있습니다.
     
-    [이러한 전략을 사용한 BAT ICO 컨트랙트](https://www.notion.so/BAT-ICO-cafcc61f9a764590b2af308572b4550f)
+    [이러한 전략을 사용한 BAT ICO 컨트랙트](https://github.com/lhn1455/TIL/blob/main/Solidity/codingPractice/SecurityCoding/BlockTimestampManipulation/BATICO.sol)
