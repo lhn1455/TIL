@@ -1,13 +1,24 @@
 # Tx.origin Authentication (소유자 인증)
 
-## **tx.origin과 msg.sender**
+- 글로벌 변수 tx.origin은 전체 호출 스택을 가로지르고 원래 호출을 보낸 계정의 주소를 포함합니다.
+- 스마트 컨트랙트에서 이 변수를 인증에 사용하면 컨트랙트가 피싱(phishing)같은 공격에 취약해 집니다.
 
-- tx.origin : 트랜잭션을 처음 시작한 계정(항상 EOA)
-- msg.sender : 트랜잭션을 처음 시작한 계정 or 중간에 컨트랙트를 경유할 경우 컨트랙트 계정으로 바뀔 수 있음
+**취약점**
 
-## **tx.origin == msg.sender (x)**
+- tx.origin 변수를 사용하여 사용자에게 권한을 부여하는 컨트랙트는 일반적으로 사용자로 하여금 취약한 컨트랙트에서 인증된 작업을 수행하도록 속일 수 있는 피싱 공격에 취약합니다.
 
-tx.origin과 msg.sender가 동일하다고 생각하고 tx.origin을 권한 검사에 사용하는것은 위험합니다.
+<br>
+
+- 참고 **tx.origin과 msg.sender**
+    - tx.origin : 트랜잭션을 처음 시작한 계정(항상 EOA)
+    - msg.sender : 트랜잭션을 처음 시작한 계정 or 중간에 컨트랙트를 경유할 경우 컨트랙트 계정으로 바뀔 수 있음
+    
+        ## **tx.origin == msg.sender (x)**
+    
+        tx.origin과 msg.sender가 동일하다고 생각하고 tx.origin을 권한 검사에 사용하는것은 위험합니다.   
+
+<br>
+<br>
 
 **보안 취약 컨트랙트 1**
 
@@ -42,6 +53,9 @@ contract MyContract {
 - 그런데 require문에서는 owner를 tx.origin과 비교하고 있습니다.
 - 공격자는 다음과 같은 컨트랙트를 작성할 수 있습니다.
 
+<br>
+<br>
+
 **공격자 컨트랙트 1**
 
 ```solidity
@@ -68,6 +82,10 @@ contract Attacker {
 
 ![https://github.com/lhn1455/TIL/raw/main/Solidity/Solidity-Docs/img/txorigin.png](https://github.com/lhn1455/TIL/raw/main/Solidity/Solidity-Docs/img/txorigin.png)
 
+
+<br>
+<br>
+
 **보안 취약 컨트랙트 2**
 
 ```solidity
@@ -88,6 +106,10 @@ contract Phishable {
 ```
 
 - require문 코드로 소유자를 인증 후 수금자에게 모든 이더를 송금하는 컨트랙트 입니다.
+
+
+<br>
+<br>
 
 **공격자 컨트랙트 2**
 
@@ -110,6 +132,10 @@ contract AttackContract {
 ```
 
 - 공격자는 Phishable 컨트랙트를 자신의 주소로 위장하여 owner를 변경하고 ether를 탈취할 수 있습니다.
+
+
+<br>
+<br>
 
 **예방 기법**
 
