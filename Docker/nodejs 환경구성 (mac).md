@@ -38,9 +38,8 @@
       /Users/wm-bl000126/nodejs cd test
       /Users/wm-bl000126/nodejs/test  
    ```
-   작업 폴더 생성시 컨테이너의 /app 경로에도 동일하게 test 폴더가 생성   
-<br>
-
+   작업 폴더 생성시 컨테이너의 /app 경로에도 동일하게 test 폴더가 생성
+   
    2. intellij 내부 터미널에서 아래의 명령어 입력
    ```
       docker exec -it node_app /bin/bash
