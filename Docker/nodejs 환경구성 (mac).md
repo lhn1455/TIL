@@ -32,11 +32,12 @@
 
 4. intellij 실행
    1. 새 프로젝트를 열어 [내 PC 저장 경로] 에 작업할 폴더 생성   
-   → [내 PC 저장 경로] : **/Users/wm-bl000126/nodejs**
+   → [내 PC 저장 경로] : **/Users/wm-bl000126/nodejs**   
+   
    ```
-   /Users/wm-bl000126/nodejs mkdir test
-   /Users/wm-bl000126/nodejs cd test
-   /Users/wm-bl000126/nodejs/test  
+      /Users/wm-bl000126/nodejs mkdir test
+      /Users/wm-bl000126/nodejs cd test
+      /Users/wm-bl000126/nodejs/test  
    ```
    작업 폴더 생성시 컨테이너의 /app 경로에도 동일하게 test 폴더가 생성   
 <br>
