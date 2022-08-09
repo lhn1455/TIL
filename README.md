@@ -104,13 +104,7 @@
     
 
 - Solidity
-    - codingPractice
-        - [algorithm_basic]()
-            - [DoWhileLoop.sol]()
-            - [IntegerToString.sol]()
-            - [maxMinMedian.sol]()
-            - [sumWhileFor.sol]
-
+    
     - [Solidity-Docs](https://github.com/lhn1455/TIL/tree/main/Solidity/Solidity-Docs)
         - [1. Introduction to Smart Contracts](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity-Docs/1.%20Introduction%20to%20Smart%20Contracts.md)
         - [Solidity v0.5.0 Breaking Changes](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity-Docs/Solidity%20v0.5.0%20Breaking%20Changes.md)
