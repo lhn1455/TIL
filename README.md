@@ -129,7 +129,3 @@
             - [tx.origin과 msg.sender](https://github.com/lhn1455/TIL/blob/main/Solidity/Solidity-Docs/Security/tx.origin%EA%B3%BC%20msg.sender.md)
         <br>
 
-
-    - [데이터 타입과 타입별 저장위치](https://github.com/lhn1455/TIL/blob/main/Solidity/%EB%8D%B0%EC%9D%B4%ED%84%B0%20%ED%83%80%EC%9E%85%EA%B3%BC%20%ED%83%80%EC%9E%85%EB%B3%84%20%EC%A0%80%EC%9E%A5%EC%9C%84%EC%B9%98.md)
-    - [컨트랙트 선언](https://github.com/lhn1455/TIL/blob/main/Solidity/%EC%BB%A8%ED%8A%B8%EB%9E%99%ED%8A%B8%20%EC%84%A0%EC%96%B8.md)
-    - [Upgradable Smart Contract](https://github.com/lhn1455/TIL/blob/main/Solidity/Upgradable%20Smart%20Contract.md)
